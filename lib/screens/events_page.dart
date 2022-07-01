@@ -77,27 +77,10 @@ class _EventsPageState extends State<EventsPage> {
                             leading: Icon(Icons.thumb_up),
                           ),
                         ),
-                        // RaisedButton is deprecated and should not be used
-                        // Use ElevatedButton instead
-
-                        // child: RaisedButton(
-                        //   onPressed: () => null,
-                        //   color: Colors.green,
-                        //   child: Padding(
-                        //     padding: const EdgeInsets.all(4.0),
-                        //     child: Row(
-                        //       children: const [
-                        //         Icon(Icons.touch_app),
-                        //         Text('Visit'),
-                        //       ],
-                        //     ), //Row
-                        //   ), //Padding
-                        // ), //RaisedButton
-                        //SizedBox
                       ],
-                    ), //Column
-                  ), //Padding
-                ), //SizedBox
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
