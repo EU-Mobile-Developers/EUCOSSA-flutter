@@ -6,6 +6,8 @@ import 'package:eu_mobile/screens/splash.dart';
 import 'package:eu_mobile/screens/welcome.dart';
 import 'package:flutter/material.dart';
 
+import 'screens/blogs.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -20,12 +22,12 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const Splash(),
-        '/registration':(context)=>Register() ,
-        '/welcome':(context) => Welcome(),
-        '/dashboard':(context) => Dashboard(),
-        '/communities':(context) => Communities(),
-        '/messages':(context) => Messages(),
-        '/blogs':(context) => Blogs(),
+        '/registration': (context) => const Register(),
+        '/welcome': (context) => const Welcome(),
+        '/dashboard': (context) => const Dashboard(),
+        '/communities': (context) => const Communities(),
+        '/messages': (context) => const Messages(),
+        '/blogs': (context) => const Blogs(),
       },
     );
   }
