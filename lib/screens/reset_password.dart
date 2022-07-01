@@ -1,3 +1,4 @@
+import 'package:eu_mobile/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -78,7 +79,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 ),
                 TextButton(
                   onPressed: () {
-                    //todo: open registration page
+                    //todo: open login page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                    );
                   },
                   child: const Text(
                     'GET STARTED',

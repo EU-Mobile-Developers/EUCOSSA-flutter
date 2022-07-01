@@ -11,7 +11,7 @@ class _CommunitiesState extends State<Communities> {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Communities regitered here'),
+      child: Text('Communities registered here'),
     );
   }
 }
