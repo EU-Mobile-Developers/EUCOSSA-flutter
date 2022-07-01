@@ -30,6 +30,19 @@ class _RegisterState extends State<Register> {
     super.initState();
   }
 
+  @override
+  void deactivate() {
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _phoneNumberController.dispose();
+    _admissionYearController.dispose();
+    _emailController.dispose();
+    _residenceController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.deactivate();
+  }
+
   bool _isTextObscured = true;
   IconData _visibilityIcon = Icons.visibility_off;
 
@@ -54,13 +67,19 @@ class _RegisterState extends State<Register> {
   }
 
   String? _nameFieldValidator(String? nameFieldValue) {
-    nameFieldValue == null || nameFieldValue.isEmpty
-        ? 'This field must contain a value'
-        : null;
+    if (nameFieldValue == null || nameFieldValue.isEmpty) {
+      return 'This field must contain a value';
+    } else {
+      return null;
+    }
   }
 
   String? _phoneNumberValidator(String? phoneNumberValue) {
-    phoneNumberValue!.length < 9 ? 'This field must contain a value' : null;
+    if (phoneNumberValue!.length < 9) {
+      return 'Your number must contain 9 digits';
+    } else {
+      return null;
+    }
   }
 
   @override
@@ -133,9 +152,10 @@ class _RegisterState extends State<Register> {
                   controller: _phoneNumberController,
                   keyboardType: TextInputType.number,
                   initialValue: '+254',
+                  validator: _phoneNumberValidator,
                   maxLength: 9,
                   decoration: InputDecoration(
-                    icon: const Icon(Icons.flag_circle_rounded),
+                    icon: const Icon(Icons.contact_phone_rounded),
                     hintText: '700 000 000',
                     hintStyle: const TextStyle(color: Colors.black),
                     labelText: 'Phone Number',
@@ -255,7 +275,7 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                 ),
-                OutlinedButton(
+                  OutlinedButton(
                   onPressed: () {
                     //todo: route to login page
                   },

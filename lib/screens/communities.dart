@@ -10,6 +10,8 @@ class Communities extends StatefulWidget {
 class _CommunitiesState extends State<Communities> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Center(
+      child: Text('Communities regitered here'),
+    );
   }
 }
