@@ -1,6 +1,5 @@
 import 'package:eu_mobile/utils/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -15,6 +14,7 @@ class _RegisterState extends State<Register> {
       _emailController,
       _phoneNumberController,
       _admissionYearController,
+      _residenceController,
       _passwordController,
       _confirmPasswordController;
   @override
@@ -26,7 +26,41 @@ class _RegisterState extends State<Register> {
     _admissionYearController = TextEditingController();
     _passwordController = TextEditingController();
     _confirmPasswordController = TextEditingController();
+    _residenceController = TextEditingController();
     super.initState();
+  }
+
+  bool _isTextObscured = true;
+  IconData _visibilityIcon = Icons.visibility_off;
+
+  IconData _changePasswordSuffixIcon(IconData visibleIcon) {
+    if (visibleIcon == Icons.visibility) {
+      return visibleIcon = Icons.visibility_off;
+    } else {
+      return visibleIcon = Icons.visibility;
+    }
+  }
+
+  String? _emailValidator(String? textFieldValue) {
+    if (textFieldValue == null || textFieldValue.isEmpty) {
+      return 'This value is required';
+    } else if (!RegExp(
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+        .hasMatch(textFieldValue)) {
+      return 'Enter a valid email address';
+    } else {
+      return null;
+    }
+  }
+
+  String? _nameFieldValidator(String? nameFieldValue) {
+    nameFieldValue == null || nameFieldValue.isEmpty
+        ? 'This field must contain a value'
+        : null;
+  }
+
+  String? _phoneNumberValidator(String? phoneNumberValue) {
+    phoneNumberValue!.length < 9 ? 'This field must contain a value' : null;
   }
 
   @override
@@ -49,6 +83,8 @@ class _RegisterState extends State<Register> {
               children: [
                 TextFormField(
                   controller: _firstNameController,
+                  validator: _nameFieldValidator,
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     hintText: 'First Name',
                     hintStyle: const TextStyle(color: Colors.black),
@@ -63,6 +99,8 @@ class _RegisterState extends State<Register> {
                 ),
                 TextFormField(
                   controller: _lastNameController,
+                  validator: _nameFieldValidator,
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     hintText: 'Last Name',
                     hintStyle: const TextStyle(color: Colors.black),
@@ -77,6 +115,8 @@ class _RegisterState extends State<Register> {
                 ),
                 TextFormField(
                   controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  validator: _emailValidator,
                   decoration: InputDecoration(
                     hintText: 'Email',
                     hintStyle: const TextStyle(color: Colors.black),
@@ -91,6 +131,7 @@ class _RegisterState extends State<Register> {
                 ),
                 TextFormField(
                   controller: _phoneNumberController,
+                  keyboardType: TextInputType.number,
                   initialValue: '+254',
                   maxLength: 9,
                   decoration: InputDecoration(
@@ -108,16 +149,106 @@ class _RegisterState extends State<Register> {
                 ),
                 TextFormField(
                   controller: _admissionYearController,
-                  initialValue: '+254',
                   maxLength: 4,
+                  keyboardType: TextInputType.number,
+                  onTap: () async {
+                    final pickedYear = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(2000),
+                        lastDate: DateTime(2072),
+                        currentDate: DateTime.now(),
+                        helpText: 'Year Of Admission',
+                        cancelText: 'Cancel',
+                        confirmText: 'Choose',
+                        errorFormatText: 'Choose the correct year',
+                        errorInvalidText: 'Invalid choice',
+                        keyboardType: TextInputType.number);
+                    _admissionYearController.text = pickedYear!.year.toString();
+                  },
                   decoration: InputDecoration(
-                    icon: const Icon(Icons.flag_circle_rounded),
+                    icon: const Icon(Icons.calendar_month_outlined),
                     counterText: '',
-                    hintText: '700 000 000',
+                    hintText: 'Year Of Admission',
                     hintStyle: const TextStyle(color: Colors.black),
-                    labelText: 'Phone Number',
+                    labelText: 'Year of Admission',
                     labelStyle: const TextStyle(color: AppTheme.gradientColor),
                     focusColor: AppTheme.gradientColor,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      borderSide: const BorderSide(color: Colors.black),
+                    ),
+                  ),
+                ),
+                TextFormField(
+                  controller: _residenceController,
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(
+                    hintText: 'Where do you stay?',
+                    hintStyle: const TextStyle(color: Colors.black),
+                    labelText: 'Residence',
+                    labelStyle: const TextStyle(color: AppTheme.gradientColor),
+                    focusColor: AppTheme.gradientColor,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      borderSide: const BorderSide(color: Colors.black),
+                    ),
+                  ),
+                ),
+                TextFormField(
+                  obscureText: _isTextObscured,
+                  controller: _passwordController,
+                  keyboardType: TextInputType.name,
+                  //todo: set obscure text and icon setting
+                  decoration: InputDecoration(
+                    hintText: 'Password',
+                    hintStyle: const TextStyle(color: Colors.black),
+                    labelText: 'Password',
+                    labelStyle: const TextStyle(color: AppTheme.gradientColor),
+                    focusColor: AppTheme.gradientColor,
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _isTextObscured = !_isTextObscured;
+                          _visibilityIcon =
+                              _changePasswordSuffixIcon(_visibilityIcon);
+                        });
+                      },
+                      child: Icon(
+                        _visibilityIcon,
+                        color: Colors.black,
+                      ),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      borderSide: const BorderSide(color: Colors.black),
+                    ),
+                  ),
+                ),
+                TextFormField(
+                  controller: _confirmPasswordController,
+                  keyboardType: TextInputType.name,
+                  obscureText: _isTextObscured,
+                  //todo: set obscure text and icon setting
+                  decoration: InputDecoration(
+                    hintText: 'Confirm Password',
+                    hintStyle: const TextStyle(color: Colors.black),
+                    labelText: 'Confirm Password',
+                    labelStyle: const TextStyle(color: AppTheme.gradientColor),
+                    focusColor: AppTheme.gradientColor,
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _isTextObscured = !_isTextObscured;
+                          _visibilityIcon =
+                              _changePasswordSuffixIcon(_visibilityIcon);
+                        });
+                      },
+                      child: Icon(
+                        _visibilityIcon,
+                        color: Colors.black,
+                      ),
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
                       borderSide: const BorderSide(color: Colors.black),
@@ -131,17 +262,6 @@ class _RegisterState extends State<Register> {
                   child: const Text('I HAVE AN ACCOUNT'),
                 )
               ],
-            ),
-          ),
-          TextButton(
-            onPressed: () {
-              //todo: route to the next screen
-            },
-            child: const Text(
-              'NEXT',
-              style: TextStyle(
-                color: AppTheme.gradientColor,
-              ),
             ),
           ),
         ],
