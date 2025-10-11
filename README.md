@@ -1,16 +1,47 @@
-# eucossa
+# Eucossa Mobile App
 
-A new Flutter project.
+A Flutter mobile companion for [https://eucossa.com/](https://eucossa.com/). Focused on UI-first delivery of resources, communities, events and account flows. Use this README as the project summary and a UI-feature checklist.
 
-## Getting Started
+## Project description
 
-This project is a starting point for a Flutter application.
+Mobile app to browse tech resources, join organized communities, follow hackathons, and manage account and privacy settings. UI is designed and prototyped in Flutter. Backend integrations are planned separately.
 
-A few resources to get you started if this is your first Flutter project:
+## Checklist — Features implemented
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+> The features whose UI is completed.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* [ ] **Resources** — list view, PDF/notes card UI, resource details screen.
+* [ ] **Communities** — category list, community feed UI, message list mock.
+* [ ] **Privacy options** — privacy settings screen, toggles and explanations.
+* [ ] **Account options** — profile screen, edit profile UI, preferences page.
+* [ ] **Hackathons** — event list, event detail/card UI, registration mock.
+* [ ] **Credits** — contributors and acknowledgements page.
+* [ ] **Libraries used (UI page)** — dependencies list screen.
+* [ ] **Authentication (UI)** — login, signup, password reset screens.
+* [ ] **Feedback / Contact Us** — feedback form UI and confirmation screen.
+
+## Notes on checklist
+
+* This checklist is UI-only. Checking an item means the screens and static flows exist.
+* Backend, API, and real-time features are **not** implied by a checked box.
+
+## App screenshots
+![Home](assets/screenshots/home.png)
+![Resources](assets/screenshots/resources.png)
+![Communities](assets/screenshots/communities.png)
+![Hackathons](assets/screenshots/hackathons.png)
+![Account](assets/screenshots/account.png)
+![Feedback](assets/screenshots/feedback.png)
+
+## Quick setup (UI preview)
+
+```bash
+git clone <repo>
+cd EUCOSSA-flutter
+flutter pub get
+flutter run
+```
+
+## License
+
+GPL-3.0
