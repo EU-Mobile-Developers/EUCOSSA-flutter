@@ -1,4 +1,5 @@
 import 'package:eucossa/scrrens/auth/login.dart';
+import 'package:eucossa/scrrens/home/tabs/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -73,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 3: // Hackathons
         return const PlaceholderScreen(title: 'Hackathons', icon: Icons.event_rounded);
       case 4: // Profile
-        return const PlaceholderScreen(title: 'Profile', icon: Icons.person_rounded);
+        return ProfileScreen();
       default:
         return _buildHomeScreen();
     }
