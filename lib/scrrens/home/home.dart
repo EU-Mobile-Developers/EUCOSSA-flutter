@@ -3,6 +3,7 @@ import 'package:eucossa/scrrens/home/tabs/communities.dart';
 import 'package:eucossa/scrrens/home/tabs/hackathons.dart';
 import 'package:eucossa/scrrens/home/tabs/main.dart';
 import 'package:eucossa/scrrens/home/tabs/profile.dart';
+import 'package:eucossa/scrrens/home/tabs/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -71,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 0:
         return HomeTab();
       case 1:
-        return const PlaceholderScreen(title: 'Resources', icon: Icons.library_books_rounded);
+        return ResourcesPage();
       case 2:
         return CommunitiesPage();
       case 3:
