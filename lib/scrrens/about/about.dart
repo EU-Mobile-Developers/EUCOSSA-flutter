@@ -1,3 +1,7 @@
+import 'package:eucossa/scrrens/about/credits.dart';
+import 'package:eucossa/scrrens/about/libraries.dart';
+import 'package:eucossa/scrrens/about/privacy.dart';
+import 'package:eucossa/scrrens/about/terms.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
@@ -110,7 +114,7 @@ class AboutPage extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const DummyPage(title: 'Privacy Policy')),
+                            MaterialPageRoute(builder: (context) => const PrivacyPolicyPage()),
                           );
                         },
                       ),
@@ -122,7 +126,7 @@ class AboutPage extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const DummyPage(title: 'Terms & Conditions')),
+                            MaterialPageRoute(builder: (context) => const TermsPage()),
                           );
                         },
                       ),
@@ -134,7 +138,7 @@ class AboutPage extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const DummyPage(title: 'Credits')),
+                            MaterialPageRoute(builder: (context) => const CreditsPage()),
                           );
                         },
                       ),
@@ -146,7 +150,7 @@ class AboutPage extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const DummyPage(title: 'Libraries Used')),
+                            MaterialPageRoute(builder: (context) => const LibrariesPage()),
                           );
                         },
                       ),
@@ -550,59 +554,6 @@ class AboutPage extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class DummyPage extends StatelessWidget {
-  final String title;
-
-  const DummyPage({super.key, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.white,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 100,
-              height: 100,
-              decoration: BoxDecoration(
-                color: Colors.deepPurple.withOpacity(0.1),
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.construction_rounded,
-                size: 40,
-                color: Colors.deepPurple,
-              ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              '$title Page',
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            const SizedBox(height: 12),
-            Text(
-              'This page is under development',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey[600],
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
