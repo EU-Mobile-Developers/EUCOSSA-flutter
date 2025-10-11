@@ -1,4 +1,5 @@
 import 'package:eucossa/scrrens/auth/login.dart';
+import 'package:eucossa/scrrens/home/tabs/hackathons.dart';
 import 'package:eucossa/scrrens/home/tabs/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -65,15 +66,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildCurrentScreen() {
     switch (_currentIndex) {
-      case 0: // Home
+      case 0:
         return _buildHomeScreen();
-      case 1: // Resources
+      case 1:
         return const PlaceholderScreen(title: 'Resources', icon: Icons.library_books_rounded);
-      case 2: // Communities
+      case 2:
         return const PlaceholderScreen(title: 'Communities', icon: Icons.people_rounded);
-      case 3: // Hackathons
-        return const PlaceholderScreen(title: 'Hackathons', icon: Icons.event_rounded);
-      case 4: // Profile
+      case 3:
+        return HackathonsPage();
+      case 4:
         return ProfileScreen();
       default:
         return _buildHomeScreen();
