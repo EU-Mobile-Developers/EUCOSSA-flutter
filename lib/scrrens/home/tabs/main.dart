@@ -8,7 +8,7 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
-  final String _userName = "Alex";
+  final String _userName = "Whizydan";
   final int _points = 1250;
   final String _userLevel = "Tech Explorer";
 

@@ -5,7 +5,7 @@ class CreditsPage extends StatelessWidget {
 
   final List<TeamMember> _teamMembers = const [
     TeamMember(
-      name: 'Daniel M.',
+      name: 'Duncan N.',
       githubUsername: 'whizydan',
       role: 'Full Stack Developer',
       email: 'whizydan@gmail.com',
