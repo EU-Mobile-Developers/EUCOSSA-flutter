@@ -10,14 +10,14 @@ Mobile app to browse tech resources, join organized communities, follow hackatho
 
 > The features whose UI is completed.
 
-* [ ] **Resources** — list view, PDF/notes card UI, resource details screen.
-* [ ] **Communities** — category list, community feed UI, message list mock.
-* [ ] **Privacy options** — privacy settings screen, toggles and explanations.
-* [ ] **Account options** — profile screen, edit profile UI, preferences page.
-* [ ] **Hackathons** — event list, event detail/card UI, registration mock.
-* [ ] **Credits** — contributors and acknowledgements page.
-* [ ] **Libraries used (UI page)** — dependencies list screen.
-* [ ] **Authentication (UI)** — login, signup, password reset screens.
+* [x] **Resources** — list view, PDF/notes card UI, resource details screen.
+* [x] **Communities** — category list, community feed UI, message list mock.
+* [x] **Privacy options** — privacy settings screen, toggles and explanations.
+* [x] **Account options** — profile screen, edit profile UI, preferences page.
+* [x] **Hackathons** — event list, event detail/card UI, registration mock.
+* [x] **Credits** — contributors and acknowledgements page.
+* [x] **Libraries used (UI page)** — dependencies list screen.
+* [x] **Authentication (UI)** — login, signup, password reset screens.
 * [ ] **Feedback / Contact Us** — feedback form UI and confirmation screen.
 
 ## Notes on checklist
