@@ -885,7 +885,9 @@ class HackathonDetailsSheet extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.grey[50],
-              border: Border.top: BorderSide(color: Colors.grey[300]!),
+              border: Border(
+                  top: BorderSide(color: Colors.grey[300]!),
+                ),
             ),
             child: Row(
               children: [
