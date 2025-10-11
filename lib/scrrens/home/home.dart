@@ -1,5 +1,7 @@
 import 'package:eucossa/scrrens/auth/login.dart';
+import 'package:eucossa/scrrens/home/tabs/communities.dart';
 import 'package:eucossa/scrrens/home/tabs/hackathons.dart';
+import 'package:eucossa/scrrens/home/tabs/main.dart';
 import 'package:eucossa/scrrens/home/tabs/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -67,86 +69,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildCurrentScreen() {
     switch (_currentIndex) {
       case 0:
-        return _buildHomeScreen();
+        return HomeTab();
       case 1:
         return const PlaceholderScreen(title: 'Resources', icon: Icons.library_books_rounded);
       case 2:
-        return const PlaceholderScreen(title: 'Communities', icon: Icons.people_rounded);
+        return CommunitiesPage();
       case 3:
         return HackathonsPage();
       case 4:
         return ProfileScreen();
       default:
-        return _buildHomeScreen();
+        return HomeTab();
     }
-  }
-
-  Widget _buildHomeScreen() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            width: 120,
-            height: 120,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.deepPurple.shade400, Colors.purple.shade600],
-              ),
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.deepPurple.withOpacity(0.3),
-                  blurRadius: 15,
-                  offset: const Offset(0, 8),
-                ),
-              ],
-            ),
-            child: const Icon(
-              Icons.rocket_launch_rounded,
-              color: Colors.white,
-              size: 50,
-            ),
-          ),
-          const SizedBox(height: 32),
-          Text(
-            'Welcome to Eucossa!',
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.w700,
-              color: Colors.grey[800],
-            ),
-          ),
-          const SizedBox(height: 16),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Text(
-              'Your tech community for resources, hackathons, and connections',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey[600],
-                height: 1.5,
-              ),
-            ),
-          ),
-          const SizedBox(height: 32),
-          const Text(
-            'You have pushed the button this many times:',
-          ),
-          const SizedBox(height: 16),
-          Text(
-            '$_counter',
-            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  color: Colors.deepPurple,
-                  fontWeight: FontWeight.w700,
-                ),
-          ),
-        ],
-      ),
-    );
   }
 
   @override
