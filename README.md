@@ -49,6 +49,14 @@ Mobile app to browse tech resources, join organized communities, follow hackatho
 ![Screenshot 20](screenshots/eucossa_app_20.png)
 ![Screenshot 21](screenshots/eucossa_app_21.png)
 ![Screenshot 22](screenshots/eucossa_app_22.png)
+![Screenshot 23](screenshots/eucossa_app_23.png)
+![Screenshot 24](screenshots/eucossa_app_24.png)
+![Screenshot 25](screenshots/eucossa_app_25.png)
+![Screenshot 26](screenshots/eucossa_app_26.png)
+![Screenshot 27](screenshots/eucossa_app_27.png)
+![Screenshot 28](screenshots/eucossa_app_28.png)
+![Screenshot 29](screenshots/eucossa_app_29.png)
+![Screenshot 30](screenshots/eucossa_app_30.png)
 
 
 
